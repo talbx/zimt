@@ -17,3 +17,11 @@ func ToMinutes(hours string, minutes string) int {
 	realMinutes, _ := strconv.Atoi(minutes)
 	return realHours*60 + realMinutes
 }
+
+
+func AddLeadingZero(num int) string {
+	if num < 10 {
+		return "0" + strconv.Itoa(num)
+	}
+	return strconv.Itoa(num)
+}

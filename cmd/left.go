@@ -2,10 +2,10 @@ package cmd
 
 import (
 	"fmt"
-	"math"
-	Time "time"
 	"github.com/spf13/cobra"
 	"github.com/talbx/zimt/internal"
+	"math"
+	Time "time"
 )
 
 var (
@@ -30,7 +30,9 @@ func calcLeft(time []string) string {
 	totalRestMinutes := totalMinutes % 60
 	now := Time.Now().Local().Add(Time.Minute * Time.Duration(totalMinutes))
 
-	return fmt.Sprintf("Time Left: %d:%d. You can go home at %d:%d", totalHours, totalRestMinutes, now.Hour(), now.Minute())
+	hs := internal.AddLeadingZero(now.Hour())
+	ms := internal.AddLeadingZero(now.Minute())
+	return fmt.Sprintf("Time Left: %s:%s. You can go home at %s:%s", internal.AddLeadingZero(totalHours), internal.AddLeadingZero(totalRestMinutes), hs, ms)
 }
 
 func init() {

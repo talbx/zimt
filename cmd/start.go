@@ -30,7 +30,9 @@ func calcStart(time []string, br int) string {
 
 	endDate := startDate.Add(Time.Hour * 8).Add(Time.Minute * Time.Duration(br))
 
-	return fmt.Sprintf("Your starting time: %d:%d. You can go home aprox. at %d:%d", h, m, endDate.Hour(), endDate.Minute())
+	hs := internal.AddLeadingZero(endDate.Hour())
+	ms := internal.AddLeadingZero(endDate.Minute())
+	return fmt.Sprintf("Your starting time: %s:%s. You can go home aprox. at %s:%s", internal.AddLeadingZero(h), internal.AddLeadingZero(m), hs, ms)
 }
 
 func init() {
