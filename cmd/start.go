@@ -16,12 +16,12 @@ var (
 		Args:  cobra.ExactArgs(1),
 		Run: func(cmd *cobra.Command, args []string) {
 			br, _ := cmd.PersistentFlags().GetInt("break")
-			fmt.Println(calcStart(args, br))
+			fmt.Println(CalcStart(args, br))
 		},
 	}
 )
 
-func calcStart(time []string, br int) string {
+func CalcStart(time []string, br int) string {
 	hours, minutes := internal.Split(time[0])
 	h, _ := strconv.Atoi(hours)
 	m, _ := strconv.Atoi(minutes)

@@ -28,7 +28,10 @@ func calcPerc(args []string) string {
 	percentual := (totalPassed / 100) * float64(percentage)
 	totalHours := int(math.Trunc(float64(percentual) / 60))
 	totalRestMinutes := int(percentual) % 60
-	return fmt.Sprintf("%d%% of %s corresponds to %d:%d", percentage, args[1], totalHours, totalRestMinutes)
+
+	h := internal.AddLeadingZero(totalHours)
+	m := internal.AddLeadingZero(totalRestMinutes)
+	return fmt.Sprintf("%d%% of %s corresponds to %s:%s", percentage, args[1], h, m)
 }
 
 func init() {

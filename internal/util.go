@@ -18,7 +18,6 @@ func ToMinutes(hours string, minutes string) int {
 	return realHours*60 + realMinutes
 }
 
-
 func AddLeadingZero(num int) string {
 	if num < 10 {
 		return "0" + strconv.Itoa(num)
