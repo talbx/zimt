@@ -5,6 +5,21 @@ import (
 	"testing"
 )
 
+func TestReverse(t *testing.T){
+
+	// given
+	entry1 := ZimtEntry{Type: "yo"}
+	entry2 := ZimtEntry{Type: "ai"}
+	var e = []ZimtEntry{entry1, entry2}
+
+	// when
+	reversed := reverse(e)
+
+	// then
+	assert.Equal(t,reversed[0], entry2)
+	assert.Equal(t,reversed[1], entry1)
+}
+
 func TestSplit(t *testing.T) {
 	// given
 	time := "12:31"
